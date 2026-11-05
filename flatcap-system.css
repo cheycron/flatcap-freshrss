@@ -1,0 +1,1130 @@
+@charset "UTF-8";
+
+/*******************************************************************
+ * Flatcap 2.0.0 for FreshRSS: System (Slate, or Daylight when the OS prefers light)
+ * Quiet precision. The interface organizes. Content takes the
+ * foreground. Color informs.
+ *
+ * Core:   https://github.com/cheycron/flat-cap-theme
+ * Values: src/theme.json (Flatcap 2.0.0, sha256 cfdc0c5991f0).
+ *         Every color, font, size and metric below comes from that
+ *         file through scripts/build.py. Do not edit by hand.
+ * Host:   FreshRSS 1.30, base theme "Nord", User CSS extension.
+ * Use:    paste into Configuration > Extensions > User CSS.
+ * Fonts:  IBM Plex Sans (UI + reading), Cascadia Code (code).
+ *         The @import below is blocked by FreshRSS's default CSP
+ *         unless the instance relaxes it; install the fonts locally
+ *         or see README.md. Fallbacks are part of the stack.
+ *******************************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Cascadia+Code:wght@400;600&family=Cascadia+Mono:wght@400&display=swap');
+
+:root {
+	--fc-font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+	--fc-font-dense: "IBM Plex Sans Condensed", "IBM Plex Sans", system-ui, sans-serif;
+	--fc-font-code: "Cascadia Code", "Cascadia Code NF", "CaskaydiaCove Nerd Font Mono", ui-monospace, Consolas, monospace;
+	--fc-font-literal: "Cascadia Mono", "Cascadia Mono NF", "Cascadia Code", ui-monospace, Consolas, monospace;
+	--fc-font-size-body: 0.9375rem;
+	--fc-font-size-control: 0.875rem;
+	--fc-font-size-meta: 0.8125rem;
+	--fc-font-size-reading: 1rem;
+	--fc-font-size-code: 0.9375rem;
+	--fc-font-size-heading: 1.125rem;
+	--fc-font-size-title: 1.5rem;
+	--fc-font-line-body: 1.6;
+	--fc-font-line-control: 1.428571;
+	--fc-font-line-reading: 1.625;
+	--fc-font-line-code: 1.6;
+	--fc-font-weight-regular: 400;
+	--fc-font-weight-medium: 500;
+	--fc-font-weight-semibold: 600;
+	--fc-space-1: 0.25rem;
+	--fc-space-2: 0.5rem;
+	--fc-space-3: 0.75rem;
+	--fc-space-4: 1rem;
+	--fc-space-6: 1.5rem;
+	--fc-space-8: 2rem;
+	--fc-space-12: 3rem;
+	--fc-radius-control: 0.25rem;
+	--fc-radius-panel: 0.375rem;
+	--fc-radius-dialog: 0.5rem;
+	--fc-border-width: 1px;
+	--fc-focus-width: 2px;
+	--fc-focus-offset: 2px;
+	--fc-motion-fast: 120ms;
+	--fc-reading-width: 70ch;
+	--fc-target-touch: 2.75rem;
+	--fc-control-min-height: 2.5rem;
+	--fc-row-min-height: 2.75rem;
+	--fc-control-padding-inline: 1rem;
+	--fc-control-padding-block: 0.5rem;
+	--fc-cell-padding: 0.75rem;
+	--fc-bg-canvas: #191D22;
+	--fc-bg-surface: #20252B;
+	--fc-bg-raised: #292F36;
+	--fc-bg-hover: #323A43;
+	--fc-bg-selected: #263E53;
+	--fc-border-subtle: #3D4652;
+	--fc-border-control: #8593A5;
+	--fc-text-primary: #D5DBE3;
+	--fc-text-secondary: #AEB8C4;
+	--fc-text-muted: #A7B3C2;
+	--fc-text-disabled: #7E8998;
+	--fc-accent-fg: #9BBFDF;
+	--fc-accent-fill: #9BBFDF;
+	--fc-accent-hover: #ACCCE7;
+	--fc-accent-pressed: #89AECD;
+	--fc-accent-on: #101820;
+	--fc-focus-ring: #B0D2F0;
+	--fc-success-fg: #9FC3AD;
+	--fc-success-bg: #25372F;
+	--fc-warning-fg: #D8BC87;
+	--fc-warning-bg: #3A3225;
+	--fc-danger-fg: #E2A0A5;
+	--fc-danger-bg: #382A30;
+	--fc-info-fg: #9BBFDF;
+	--fc-info-bg: #263E53;
+	--fc-syntax-keyword: #9BBFDF;
+	--fc-syntax-function: #ABC9CB;
+	--fc-syntax-string: #9FC3AD;
+	--fc-syntax-number: #B6AED5;
+	--fc-syntax-type: #D6AF95;
+	--fc-syntax-comment: #A7B3C2;
+	--fc-selection-bg: #3C546B;
+	--fc-selection-fg: #D5DBE3;
+	--fc-shadow-overlay: 0 8px 24px rgb(0 0 0 / 24%);
+	--fc-shadow-color: rgb(0 0 0 / 24%);
+	--fc-color-scheme: dark;
+	--fc-favicon-plate: #D5DBE3;
+	--fc-scrim: color-mix(in srgb, #191D22 72%, transparent);
+	--fc-filter-icon: brightness(0) saturate(100%) invert(100%) sepia(88%) saturate(1182%) hue-rotate(176deg) brightness(83%) contrast(81%);
+	--fc-filter-icon-hover: brightness(0) saturate(100%) invert(96%) sepia(2%) saturate(842%) hue-rotate(178deg) brightness(94%) contrast(89%);
+	--fc-filter-icon-accent: brightness(0) saturate(100%) invert(80%) sepia(17%) saturate(626%) hue-rotate(172deg) brightness(89%) contrast(95%);
+	--fc-filter-icon-on-accent: brightness(0) saturate(100%) invert(7%) sepia(16%) saturate(1366%) hue-rotate(169deg) brightness(95%) contrast(96%);
+	--fc-filter-icon-danger: brightness(0) saturate(100%) invert(95%) sepia(83%) saturate(6053%) hue-rotate(288deg) brightness(96%) contrast(83%);
+}
+
+@media (prefers-contrast: more) {
+	:root {
+		--fc-border-control: #B0C0D2;
+		--fc-text-primary: #EFF3F8;
+		--fc-text-secondary: #CBD5E1;
+		--fc-text-muted: #C8D4E2;
+		--fc-favicon-plate: #EFF3F8;
+		--fc-filter-icon: brightness(0) saturate(100%) invert(90%) sepia(10%) saturate(268%) hue-rotate(172deg) brightness(95%) contrast(90%);
+		--fc-filter-icon-hover: brightness(0) saturate(100%) invert(87%) sepia(10%) saturate(120%) hue-rotate(176deg) brightness(111%) contrast(94%);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--fc-bg-canvas: #F3F5F7;
+		--fc-bg-surface: #FAFBFC;
+		--fc-bg-raised: #FFFFFF;
+		--fc-bg-hover: #E6EBF0;
+		--fc-bg-selected: #DCE9F4;
+		--fc-border-subtle: #D2D9E0;
+		--fc-border-control: #6C7A89;
+		--fc-text-primary: #28313B;
+		--fc-text-secondary: #465463;
+		--fc-text-muted: #536273;
+		--fc-text-disabled: #89939E;
+		--fc-accent-fg: #285D85;
+		--fc-accent-fill: #285D85;
+		--fc-accent-hover: #214F73;
+		--fc-accent-pressed: #1C4362;
+		--fc-accent-on: #FAFBFC;
+		--fc-focus-ring: #285D85;
+		--fc-success-fg: #32664D;
+		--fc-success-bg: #E4EEE8;
+		--fc-warning-fg: #765319;
+		--fc-warning-bg: #F4ECD9;
+		--fc-danger-fg: #A43F4A;
+		--fc-danger-bg: #F5E5E7;
+		--fc-info-fg: #285D85;
+		--fc-info-bg: #DCE9F4;
+		--fc-syntax-keyword: #285D85;
+		--fc-syntax-function: #306770;
+		--fc-syntax-string: #32664D;
+		--fc-syntax-number: #68598C;
+		--fc-syntax-type: #84533D;
+		--fc-syntax-comment: #536273;
+		--fc-selection-bg: #C8DDF0;
+		--fc-selection-fg: #28313B;
+		--fc-shadow-overlay: 0 8px 24px rgb(25 29 34 / 10%);
+		--fc-shadow-color: rgb(25 29 34 / 10%);
+		--fc-color-scheme: light;
+		--fc-favicon-plate: #FFFFFF;
+		--fc-scrim: color-mix(in srgb, #F3F5F7 72%, transparent);
+		--fc-filter-icon: brightness(0) saturate(100%) invert(29%) sepia(12%) saturate(868%) hue-rotate(170deg) brightness(98%) contrast(87%);
+		--fc-filter-icon-hover: brightness(0) saturate(100%) invert(15%) sepia(20%) saturate(674%) hue-rotate(171deg) brightness(96%) contrast(89%);
+		--fc-filter-icon-accent: brightness(0) saturate(100%) invert(32%) sepia(14%) saturate(2511%) hue-rotate(163deg) brightness(91%) contrast(84%);
+		--fc-filter-icon-on-accent: brightness(0) saturate(100%) invert(94%) sepia(29%) saturate(1688%) hue-rotate(200deg) brightness(130%) contrast(97%);
+		--fc-filter-icon-danger: brightness(0) saturate(100%) invert(31%) sepia(14%) saturate(2589%) hue-rotate(305deg) brightness(99%) contrast(90%);
+	}
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+	:root {
+		--fc-bg-canvas: #F3F5F7;
+		--fc-bg-surface: #FAFBFC;
+		--fc-bg-raised: #FFFFFF;
+		--fc-bg-hover: #E6EBF0;
+		--fc-bg-selected: #DCE9F4;
+		--fc-border-subtle: #D2D9E0;
+		--fc-border-control: #53677C;
+		--fc-text-primary: #17212C;
+		--fc-text-secondary: #2B3D50;
+		--fc-text-muted: #35485B;
+		--fc-text-disabled: #89939E;
+		--fc-accent-fg: #285D85;
+		--fc-accent-fill: #285D85;
+		--fc-accent-hover: #214F73;
+		--fc-accent-pressed: #1C4362;
+		--fc-accent-on: #FAFBFC;
+		--fc-focus-ring: #285D85;
+		--fc-success-fg: #32664D;
+		--fc-success-bg: #E4EEE8;
+		--fc-warning-fg: #765319;
+		--fc-warning-bg: #F4ECD9;
+		--fc-danger-fg: #A43F4A;
+		--fc-danger-bg: #F5E5E7;
+		--fc-info-fg: #285D85;
+		--fc-info-bg: #DCE9F4;
+		--fc-syntax-keyword: #285D85;
+		--fc-syntax-function: #306770;
+		--fc-syntax-string: #32664D;
+		--fc-syntax-number: #68598C;
+		--fc-syntax-type: #84533D;
+		--fc-syntax-comment: #536273;
+		--fc-selection-bg: #C8DDF0;
+		--fc-selection-fg: #28313B;
+		--fc-shadow-overlay: 0 8px 24px rgb(25 29 34 / 10%);
+		--fc-shadow-color: rgb(25 29 34 / 10%);
+		--fc-color-scheme: light;
+		--fc-favicon-plate: #FFFFFF;
+		--fc-scrim: color-mix(in srgb, #F3F5F7 72%, transparent);
+		--fc-filter-icon: brightness(0) saturate(100%) invert(20%) sepia(19%) saturate(1067%) hue-rotate(170deg) brightness(93%) contrast(89%);
+		--fc-filter-icon-hover: brightness(0) saturate(100%) invert(10%) sepia(34%) saturate(617%) hue-rotate(171deg) brightness(99%) contrast(95%);
+		--fc-filter-icon-accent: brightness(0) saturate(100%) invert(32%) sepia(14%) saturate(2511%) hue-rotate(163deg) brightness(91%) contrast(84%);
+		--fc-filter-icon-on-accent: brightness(0) saturate(100%) invert(94%) sepia(29%) saturate(1688%) hue-rotate(200deg) brightness(130%) contrast(97%);
+		--fc-filter-icon-danger: brightness(0) saturate(100%) invert(31%) sepia(14%) saturate(2589%) hue-rotate(305deg) brightness(99%) contrast(90%);
+	}
+}
+
+/*=== 1. Host variables ==========================================
+ * Nord drives FreshRSS through a short list of variables. Re-pointing them
+ * at Flatcap roles recolors the whole app; the rules below only fix what
+ * variables cannot express (states, indicators, geometry, icons).
+ *   surfaces : canvas = page, surface = sidebar/panels/open article,
+ *              raised = floating (dropdowns), hover, selected
+ *   borders  : subtle = decorative separators, control = fields/buttons
+ */
+:root {
+	color-scheme: var(--fc-color-scheme);
+
+	--sans-font: var(--fc-font-ui);
+	--mono-font: var(--fc-font-code);
+
+	--nordX-background: var(--fc-bg-canvas);
+	--nord0-polarnight: var(--fc-bg-surface);
+	--main-background: var(--fc-bg-canvas);
+	--main-background-transparent: var(--fc-bg-canvas);
+	--accent-bg: var(--fc-bg-surface);
+	--accent-border: var(--fc-border-subtle);
+	--light-bg: var(--fc-bg-hover);
+	--dropdown-bg: var(--fc-bg-raised);
+	--border-elements: var(--fc-border-subtle);
+
+	--text-default: var(--fc-text-primary);
+	--text-accent: var(--fc-text-secondary);
+	--accent: var(--fc-accent-fg);
+	--highlight: var(--fc-accent-hover);
+
+	--red: var(--fc-danger-fg);
+	--orange: var(--fc-warning-fg);
+	--green: var(--fc-success-fg);
+	--purple: var(--fc-info-fg);
+	--blue: var(--fc-info-fg);
+
+	--frss-background-color: var(--fc-bg-canvas);
+	--frss-background-color-transparent: var(--fc-bg-surface);
+	--frss-background-color-middle: var(--fc-bg-hover);
+	--frss-background-color-dark: var(--fc-border-control);
+	--frss-background-color-error-transparent: var(--fc-danger-bg);
+	--frss-border-color: var(--fc-border-subtle);
+	--frss-border-color-error: var(--fc-danger-fg);
+	--frss-box-shadow-color-transparent: var(--fc-shadow-color);
+	--frss-darken-background-hover-transparent: var(--fc-bg-hover);
+	--frss-dragdrop-color: var(--fc-accent-fg);
+	--frss-dragdrop-color-transparent: var(--fc-bg-selected);
+	--frss-font-color-dark: var(--fc-text-primary);
+	--frss-font-color-grey-dark: var(--fc-text-muted);
+	--frss-font-color-grey-light: var(--fc-text-muted);
+	--frss-font-color-light: var(--fc-accent-on);
+	--frss-font-color-disabled: var(--fc-text-disabled);
+	--frss-font-color-error: var(--fc-danger-fg);
+	--frss-modal-background-color-transparent: var(--fc-scrim);
+	--frss-noThumbnailImage-background-color: var(--fc-bg-hover);
+	--frss-switch-accent-color: var(--fc-accent-fill);
+	--frss-scrollbar-handle: var(--fc-border-subtle);
+	--frss-scrollbar-handle-hover: var(--fc-border-control);
+	--frss-scrollbar-track: transparent;
+	--frss-scrollbar-track-hover: transparent;
+}
+
+/*=== 2. Base: canvas, text, links, selection, focus ============*/
+
+/* html stays at 100% so 1rem is the user's base size (16px by default) and every
+ * rem token keeps its meaning; the 15px application size belongs to body */
+html {
+	font-size: 100%;
+}
+
+html, body {
+	background: var(--fc-bg-canvas);
+	color: var(--fc-text-primary);
+	font-family: var(--fc-font-ui);
+	line-height: var(--fc-font-line-body);
+}
+
+body {
+	font-size: var(--fc-font-size-body);
+}
+
+::selection {
+	background: var(--fc-selection-bg);
+	color: var(--fc-selection-fg);
+}
+
+a, .as-link, button.as-link {
+	color: var(--fc-accent-fg);
+}
+
+a:hover, .as-link:hover, button.as-link:hover {
+	color: var(--fc-accent-hover);
+}
+
+/* keyboard focus: 2px ring, 2px offset, independent of hover/selection */
+:is(a, button, input, select, textarea, summary, label, [tabindex]):focus-visible {
+	outline: var(--fc-focus-width) solid var(--fc-focus-ring);
+	outline-offset: var(--fc-focus-offset);
+}
+
+.flux .flux_header:focus-visible,
+.flux:focus-visible {
+	outline-offset: calc(-1 * var(--fc-focus-width));
+}
+
+p.help {
+	color: var(--fc-text-muted);
+	font-size: var(--fc-font-size-meta);
+	font-style: normal;
+}
+
+kbd {
+	background: var(--fc-bg-raised);
+	border: var(--fc-border-width) solid var(--fc-border-control);
+	border-radius: var(--fc-radius-control);
+	color: var(--fc-text-primary);
+	font-family: var(--fc-font-code);
+	font-size: var(--fc-font-size-meta);
+}
+
+code, pre, samp {
+	font-family: var(--fc-font-code);
+}
+
+/*=== 3. Forms ==================================================
+ * Fields use border.control (functional), never border.subtle.
+ */
+
+legend {
+	border-bottom: var(--fc-border-width) solid var(--fc-border-subtle);
+	color: var(--fc-text-primary);
+	font-size: var(--fc-font-size-heading);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="hidden"]),
+select,
+textarea {
+	box-sizing: border-box;
+	background-color: var(--fc-bg-surface);
+	border: var(--fc-border-width) solid var(--fc-border-control);
+	border-radius: var(--fc-radius-control);
+	color: var(--fc-text-primary);
+	font-family: var(--fc-font-ui);
+	font-size: var(--fc-font-size-control);
+	line-height: var(--fc-font-line-control);
+	min-height: var(--fc-control-min-height);
+	padding-block: calc(var(--fc-control-padding-block) - 1px);
+	padding-inline: var(--fc-space-3);
+	transition: border-color var(--fc-motion-fast);
+}
+
+input[type="checkbox"], input[type="radio"] {
+	accent-color: var(--fc-accent-fill);
+}
+
+::placeholder {
+	color: var(--fc-text-muted);
+	opacity: 1;
+}
+
+input:hover, select:hover, textarea:hover {
+	border-color: var(--fc-accent-fg);
+}
+
+input:focus, select:focus, textarea:focus {
+	background-color: var(--fc-bg-canvas);
+	border-color: var(--fc-accent-fg);
+}
+
+input:user-invalid, select:user-invalid, textarea:user-invalid {
+	border-color: var(--fc-danger-fg);
+	box-shadow: inset 0 0 0 1px var(--fc-danger-fg);
+}
+
+/* disabled = unavailable; read-only = available to read and copy */
+input:disabled, select:disabled, textarea:disabled {
+	background-color: var(--fc-bg-surface);
+	border-color: var(--fc-border-subtle);
+	color: var(--fc-text-disabled);
+	cursor: not-allowed;
+}
+
+input[readonly], textarea[readonly] {
+	background-color: var(--fc-bg-canvas);
+	border-color: var(--fc-border-subtle);
+	color: var(--fc-text-secondary);
+}
+
+option {
+	background: var(--fc-bg-raised);
+	color: var(--fc-text-primary);
+}
+
+button.as-link[disabled] {
+	color: var(--fc-text-disabled);
+	font-style: normal;
+}
+
+table th {
+	color: var(--fc-text-secondary);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+table th, table td {
+	font-variant-numeric: tabular-nums;
+	padding: var(--fc-cell-padding);
+}
+
+.form-group.form-actions {
+	background: var(--fc-bg-canvas);
+	border-top: var(--fc-border-width) solid var(--fc-border-subtle);
+}
+
+/*=== 4. Buttons ================================================
+ * default  : surface + border.control
+ * .active  : bg.selected + accent underline (toggle is "on")
+ * primary  : accent.fill + accent.on, hover/pressed variants
+ * attention: danger.fg outline, danger.bg on hover (no white-on-red)
+ */
+
+.btn {
+	box-sizing: border-box;
+	background: var(--fc-bg-surface);
+	border: var(--fc-border-width) solid var(--fc-border-control);
+	border-radius: var(--fc-radius-control);
+	color: var(--fc-text-primary);
+	font-size: var(--fc-font-size-control);
+	font-weight: var(--fc-font-weight-medium);
+	line-height: calc(var(--fc-control-min-height) - 2 * var(--fc-border-width));
+	min-height: var(--fc-control-min-height);
+	padding: 0 var(--fc-space-3);
+	transition: background-color var(--fc-motion-fast), border-color var(--fc-motion-fast), color var(--fc-motion-fast);
+}
+
+.btn:hover {
+	background: var(--fc-bg-hover);
+	border-color: var(--fc-border-control);
+	color: var(--fc-text-primary);
+}
+
+.btn:active {
+	background: var(--fc-bg-selected);
+}
+
+.btn.active {
+	background: var(--fc-bg-selected);
+	border-color: var(--fc-accent-fg);
+	box-shadow: inset 0 calc(-1 * var(--fc-focus-width)) 0 var(--fc-accent-fg);
+	color: var(--fc-text-primary);
+}
+
+.btn:disabled, .btn[disabled], .btn.disabled {
+	background: var(--fc-bg-surface);
+	border-color: var(--fc-border-subtle);
+	box-shadow: none;
+	color: var(--fc-text-disabled);
+	cursor: not-allowed;
+}
+
+.btn-important, .nav_menu_read_all .read_all, #actualize {
+	background-color: var(--fc-accent-fill) !important;
+	border-color: var(--fc-accent-fill) !important;
+	box-shadow: none;
+	color: var(--fc-accent-on) !important;
+	font-weight: var(--fc-font-weight-semibold) !important;
+}
+
+.btn-important:hover, .nav_menu_read_all .read_all:hover, #actualize:hover {
+	background-color: var(--fc-accent-hover) !important;
+	border-color: var(--fc-accent-hover) !important;
+}
+
+.btn-important:active, .nav_menu_read_all .read_all:active, #actualize:active {
+	background-color: var(--fc-accent-pressed) !important;
+	border-color: var(--fc-accent-pressed) !important;
+}
+
+.btn-attention {
+	background: var(--fc-bg-surface);
+	border-color: var(--fc-danger-fg) !important;
+	color: var(--fc-danger-fg) !important;
+}
+
+.btn-attention:hover {
+	background: var(--fc-danger-bg);
+	color: var(--fc-danger-fg) !important;
+}
+
+/* split/stick groups: control radius on the outer corners */
+.stick input:first-child, .stick select:first-child, .stick .btn:first-child,
+.stick .btn:last-child {
+	border-radius: var(--fc-radius-control);
+}
+.stick input:first-child, .stick select:first-child, .stick .btn:first-child:not(:last-child) {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+.stick .btn:last-child:not(:first-child) {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+.nav_menu .stick input, .nav_menu .stick .btn {
+	border-radius: var(--fc-radius-control);
+}
+.nav_menu .stick .mark-read-menu .read_all.btn,
+.nav_menu .dropdown-menu .stick.search input {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+.nav_menu .stick .mark-read-menu .dropdown-toggle.btn,
+.nav_menu .dropdown-menu .stick.search .btn {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+/* mobile: the read_all half is hidden, so the lone toggle is a full button */
+@media (max-width: 840px) {
+	.nav_menu .stick .mark-read-menu .dropdown-toggle.btn {
+		border-left-width: var(--fc-border-width);
+		border-radius: var(--fc-radius-control);
+	}
+}
+
+/*=== 5. Icons ==================================================
+ * Icons are <img> SVGs, so color comes from filters generated from the
+ * role colors (scripts/build.py). Tinted per state, never decorative.
+ */
+
+.icon {
+	filter: var(--fc-filter-icon);
+}
+
+a:hover .icon, .btn:hover .icon, .tree-folder-title button.dropdown-toggle:hover .icon,
+.notification .close:hover .icon {
+	filter: var(--fc-filter-icon-hover);
+	transition: filter var(--fc-motion-fast);
+}
+
+.tree-folder-title:hover button.dropdown-toggle .icon {
+	filter: var(--fc-filter-icon);
+}
+
+.btn.active .icon, .flux.favorite .item.manage .bookmark .icon,
+.flux .item.manage .read:hover .icon {
+	filter: var(--fc-filter-icon-accent);
+}
+
+.btn-important .icon, #btn-add.btn-important .icon, #actualize .icon,
+.nav_menu_read_all .read_all .icon {
+	filter: var(--fc-filter-icon-on-accent);
+}
+
+.btn-attention .icon {
+	filter: var(--fc-filter-icon-danger);
+}
+
+.header > .item.title .logo, .header > .item.title a:hover .logo {
+	filter: var(--fc-filter-icon-accent);
+}
+
+img.favicon {
+	background: var(--fc-favicon-plate);
+	border-radius: var(--fc-radius-control);
+}
+
+/*=== 6. Sidebar: categories and feeds ==========================*/
+
+.header > .item.title h1 a {
+	color: var(--fc-text-primary);
+}
+
+.aside {
+	background: var(--fc-bg-surface);
+	border-right: var(--fc-border-width) solid var(--fc-border-subtle);
+	border-top-right-radius: 0;
+}
+
+.nav_menu, .header {
+	background: var(--fc-bg-canvas);
+}
+
+.tree-folder.category {
+	border-bottom: var(--fc-border-width) solid var(--fc-border-subtle);
+}
+
+.tree-folder-title, .tree-folder-items > .item {
+	font-size: var(--fc-font-size-control);
+}
+
+.tree-folder-title .title, .tree-folder-items > .item > a,
+.aside.nav-list .nav-section .item a {
+	color: var(--fc-text-secondary);
+}
+
+.aside.nav-list .nav-section .item a:hover, .aside.nav-list .nav-section .item .as-link:hover,
+.tree-folder.category .tree-folder-title:hover, .tree-folder.category:hover .tree-folder-title,
+.item.feed:hover {
+	background: var(--fc-bg-hover);
+	color: var(--fc-text-primary);
+}
+
+.tree-folder .tree-folder-title:hover a, .tree-folder .tree-folder-items .item.feed:hover a,
+.tree-folder.category.active .tree-folder-title:hover a {
+	color: var(--fc-text-primary);
+}
+
+/* current location: bg.selected + 2px accent edge + weight (not fill alone) */
+.aside.nav-list .nav-section .item.active, .tree-folder.category.active .tree-folder-title,
+.item.feed.active, li.item.active {
+	background: var(--fc-bg-selected);
+	box-shadow: inset var(--fc-focus-width) 0 0 var(--fc-accent-fg);
+}
+
+.aside.nav-list .nav-section .item.active a, .aside.nav-list .nav-section .item.active .as-link,
+.tree-folder.category.active .tree-folder-title a, .tree-folder.category.active .tree-folder-title .title,
+.item.feed.active a {
+	background: transparent;
+	color: var(--fc-text-primary);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+.aside_feed .tree-folder-items.active {
+	background: var(--fc-bg-canvas);
+}
+
+/* unread counters: neutral by default, accent pill on the current feed */
+.aside .category .tree-folder-title .title:not([data-unread="0"])::after,
+.aside .feed .item-title:not([data-unread="0"])::after {
+	color: var(--fc-text-muted);
+	font-size: var(--fc-font-size-meta);
+	font-variant-numeric: tabular-nums;
+}
+
+.aside .feed.active .item-title:not([data-unread="0"])::after {
+	background: var(--fc-accent-fill);
+	color: var(--fc-accent-on);
+}
+
+.aside .feed.active:hover .item-title:not([data-unread="0"])::after {
+	background: var(--fc-accent-hover);
+}
+
+/* feed in error: danger color plus FreshRSS's own marker glyph */
+.item.feed.error > .item-title, .item.feed.error .item-title a {
+	color: var(--fc-danger-fg);
+}
+
+#new-article > a {
+	border: var(--fc-border-width) solid var(--fc-info-fg);
+	border-radius: var(--fc-radius-control);
+	color: var(--fc-info-fg);
+}
+
+#new-article > a:hover {
+	background: var(--fc-info-bg);
+	color: var(--fc-info-fg);
+}
+
+.aside .toggle_aside, .dropdown-menu .toggle_aside, #slider .toggle_aside,
+.dropdown-header-close a {
+	background: var(--fc-bg-surface);
+	border-color: var(--fc-border-control);
+}
+
+.aside .toggle_aside:hover, #slider .toggle_aside:hover, .dropdown-menu .toggle_aside:hover {
+	background-color: var(--fc-bg-hover) !important;
+	border-color: var(--fc-border-control) !important;
+}
+
+/*=== 7. Article list: unread / read / current / favorite =======
+ * unread  : text.primary, weight 600
+ * read    : text.secondary, weight 400
+ * current : bg.selected + 2px accent edge
+ * favorite: filled star in accent.fg (shape differs from the outline star)
+ */
+
+.flux_header {
+	border-bottom: var(--fc-border-width) solid var(--fc-border-subtle);
+	font-size: var(--fc-font-size-control);
+	min-height: var(--fc-row-min-height);
+}
+
+.flux_header .title, .flux .flux_header .item .title {
+	font-size: var(--fc-font-size-control);
+}
+
+/* the feed cell is 40px wide on mobile; a clipped whitespace node would draw ".." */
+.flux .flux_header .item.website > a {
+	text-overflow: clip;
+}
+
+.flux_header:hover, .flux:not(.current):hover .item .title {
+	background: var(--fc-bg-hover);
+}
+
+.flux:not(.not_read) .flux_header .item .title {
+	color: var(--fc-text-secondary);
+	font-weight: var(--fc-font-weight-regular);
+}
+
+.flux.not_read .flux_header .item .title, .flux.current .flux_header .item .title {
+	color: var(--fc-text-primary);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+.flux .flux_header .item .title a:hover, .flux .flux_header .item .title:hover {
+	color: var(--fc-accent-hover);
+}
+
+.flux .flux_header .item.website a, .flux .flux_header .item .date, .flux .flux_header .item .date time {
+	color: var(--fc-text-muted);
+	font-size: var(--fc-font-size-meta);
+	font-variant-numeric: tabular-nums;
+}
+
+.flux .flux_header .item .title .summary, .flux .flux_header .item .title .author {
+	color: var(--fc-text-muted);
+	font-style: normal;
+	opacity: 1;
+}
+
+.flux.current {
+	background: var(--fc-bg-surface);
+	border-left: var(--fc-focus-width) solid var(--fc-accent-fg);
+}
+
+.flux.current > .flux_header, .flux.current > .flux_header:hover {
+	background: var(--fc-bg-selected);
+	margin-left: calc(-1 * var(--fc-focus-width));
+}
+
+/* the day-link glyph (U+23ED) is missing from the font stack and renders as tofu:
+ * hide it and draw an arrow from Plex instead; the link keeps its text for AT */
+.transition-next {
+	font-size: 0;
+	opacity: 1;
+}
+
+.transition-next::after {
+	content: "\2192";
+	font-family: var(--fc-font-ui);
+	font-size: var(--fc-font-size-body);
+}
+
+.transition .name {
+	color: var(--fc-text-secondary);
+	font-size: var(--fc-font-size-heading);
+	font-style: normal;
+	font-weight: var(--fc-font-weight-semibold);
+	opacity: 1;
+}
+
+.stream-footer, .pagination {
+	background: var(--fc-bg-surface);
+}
+
+.pagination .item a:hover, #nav_entries .item a:hover {
+	background: var(--fc-bg-hover);
+	color: var(--fc-text-primary);
+}
+
+.pagination .item.active a {
+	color: var(--fc-text-primary);
+	text-decoration: underline;
+	text-decoration-thickness: var(--fc-focus-width);
+	text-underline-offset: 0.25em;
+}
+
+#nav_entries {
+	background: var(--fc-bg-surface);
+	border-top: var(--fc-border-width) solid var(--fc-border-subtle);
+}
+
+.bigTick {
+	color: var(--fc-accent-fg);
+}
+
+#bigMarkAsRead:hover {
+	background: var(--fc-bg-hover);
+}
+
+/*=== 8. Open article: reading ==================================
+ * Plex Sans at reading size/leading. Column width follows the user's
+ * "article width" setting in FreshRSS; it is not forced here.
+ */
+
+.flux_content .content {
+	color: var(--fc-text-primary);
+	font-family: var(--fc-font-ui);
+	font-size: var(--fc-font-size-reading);
+	line-height: var(--fc-font-line-reading);
+}
+
+.flux_content .content header h1.title {
+	font-size: var(--fc-font-size-title);
+	font-weight: var(--fc-font-weight-semibold);
+	line-height: 1.333;
+}
+
+.flux_content .content header h1.title a {
+	color: var(--fc-text-primary);
+	font-family: var(--fc-font-ui);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+.flux_content .content header h1.title a:hover {
+	color: var(--fc-accent-hover);
+}
+
+.flux_content .content h2, .flux_content .content h3, .flux_content .content h4 {
+	font-size: var(--fc-font-size-heading);
+	font-weight: var(--fc-font-weight-semibold);
+	line-height: 1.444;
+}
+
+.flux_content .content a, .flux_content .content .text a {
+	color: var(--fc-accent-fg);
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+
+.flux_content .content a:hover {
+	color: var(--fc-accent-hover);
+}
+
+.flux_content .content header a {
+	text-decoration: none;
+}
+
+.content > header .subtitle, .content > footer .subtitle,
+.flux_content .content > header, .flux_content .content > footer {
+	color: var(--fc-text-muted);
+	font-size: var(--fc-font-size-meta);
+}
+
+.content > header .subtitle a, .content > footer .subtitle a {
+	text-decoration: none;
+}
+
+.content > footer .subtitle, .content hr {
+	border-color: var(--fc-border-subtle);
+}
+
+.content blockquote {
+	border-left: var(--fc-focus-width) solid var(--fc-border-control);
+	color: var(--fc-text-secondary);
+	font-family: var(--fc-font-ui);
+	font-style: normal;
+	padding: var(--fc-space-1) var(--fc-space-4);
+}
+
+.content table th, .content table td {
+	padding: var(--fc-space-2) var(--fc-space-3);
+}
+
+.content table tr {
+	border-bottom: var(--fc-border-width) solid var(--fc-border-subtle);
+}
+
+/*=== 9. Code in articles =======================================
+ * Block: canvas well + subtle frame (decorative; the well is the cue).
+ * Syntax colors apply when the feed keeps highlighter classes
+ * (highlight.js, Prism, Pygments); plain code stays text.primary.
+ */
+
+.content pre {
+	background: var(--fc-bg-canvas);
+	border: var(--fc-border-width) solid var(--fc-border-subtle);
+	border-radius: var(--fc-radius-panel);
+	color: var(--fc-text-primary);
+	font-size: var(--fc-font-size-code);
+	line-height: var(--fc-font-line-code);
+	padding: var(--fc-space-3) var(--fc-space-4);
+}
+
+.content pre code {
+	background: transparent;
+	border: 0;
+	font-size: inherit;
+	padding: 0;
+}
+
+.content code, .content kbd, .content samp {
+	font-family: var(--fc-font-code);
+	font-size: 0.9em;
+}
+
+.content :not(pre) > code {
+	background: var(--fc-bg-raised);
+	border: var(--fc-border-width) solid var(--fc-border-subtle);
+	border-radius: var(--fc-radius-control);
+	color: var(--fc-text-primary);
+	padding: 0 var(--fc-space-1);
+}
+
+.content .hljs-keyword, .content .hljs-selector-tag, .content .token.keyword,
+.content .highlight :is(.k, .kd, .kn, .kr, .kc) {
+	color: var(--fc-syntax-keyword);
+}
+.content .hljs-title.function_, .content .hljs-function .hljs-title, .content .token.function,
+.content .highlight .nf {
+	color: var(--fc-syntax-function);
+}
+.content .hljs-string, .content .token.string, .content .token.attr-value,
+.content .highlight :is(.s, .s1, .s2, .sb) {
+	color: var(--fc-syntax-string);
+}
+.content .hljs-number, .content .hljs-literal, .content .token.number, .content .token.boolean,
+.content .highlight :is(.m, .mi, .mf, .mh) {
+	color: var(--fc-syntax-number);
+}
+.content .hljs-type, .content .hljs-title.class_, .content .token.class-name,
+.content .highlight :is(.nc, .kt) {
+	color: var(--fc-syntax-type);
+}
+.content .hljs-comment, .content .token.comment, .content .highlight :is(.c, .c1, .cm) {
+	color: var(--fc-syntax-comment);
+	font-style: normal;
+}
+
+/* logs are literal text: Cascadia Mono, ligatures off */
+.log, .log-item, #log, .logs pre {
+	font-family: var(--fc-font-literal);
+	font-feature-settings: "calt" 0, "liga" 0;
+	font-variant-ligatures: none;
+}
+
+/*=== 10. Dropdowns and overlays ================================
+ * Floating = bg.raised + border + the only shadow in the theme.
+ */
+
+.dropdown-menu {
+	background: var(--fc-bg-raised);
+	border: var(--fc-border-width) solid var(--fc-border-subtle);
+	border-radius: var(--fc-radius-panel);
+	box-shadow: var(--fc-shadow-overlay);
+	font-size: var(--fc-font-size-control);
+}
+
+.dropdown-menu::after, .dropdown-target:target ~ .dropdown-toggle::after {
+	background: var(--fc-bg-raised);
+}
+
+.dropdown-menu > .item > a, .dropdown-menu > .item > span, .dropdown-menu > .item .as-link,
+.dropdown-menu > .item > ul > .item > a, .dropdown-menu > .item > ul > .item > span,
+.dropdown-menu > .item > ul > .item .as-link {
+	color: var(--fc-text-primary) !important;
+}
+
+.dropdown-menu .item > a:focus, .dropdown-menu .item > a:hover,
+.dropdown-menu .item button:focus:not([disabled]), .dropdown-menu .item button:hover:not([disabled]),
+.dropdown-menu .item > label:focus:not(.noHover), .dropdown-menu .item > label:hover:not(.noHover) {
+	background: var(--fc-bg-hover);
+	color: var(--fc-text-primary);
+}
+
+.dropdown-menu .dropdown-header, .dropdown-section .dropdown-section-title {
+	color: var(--fc-text-secondary);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+.dropdown-menu .stick input {
+	background: var(--fc-bg-surface);
+	border-color: var(--fc-border-control);
+}
+
+.dropdown-menu .stick .btn {
+	border-color: var(--fc-border-control);
+}
+
+.item ~ .dropdown-header, .dropdown-section ~ .dropdown-section, .item.separator {
+	border-top-color: var(--fc-border-subtle);
+}
+
+#popup-content, #slider, #overlay {
+	background: var(--fc-bg-surface);
+	border-radius: var(--fc-radius-dialog);
+}
+
+/*=== 11. Feedback: alerts and notifications ====================
+ * fg + bg pairs, a 4px edge and FreshRSS's own words ("Error", ...);
+ * success/warning/danger/info are never used decoratively.
+ */
+
+.alert {
+	background: var(--fc-bg-surface);
+	border: var(--fc-border-width) solid var(--fc-border-subtle);
+	border-radius: var(--fc-radius-panel);
+	color: var(--fc-text-secondary);
+	font-size: var(--fc-font-size-control);
+}
+
+.alert-success, .alert-warn, .alert-info, .alert-error {
+	border-left-width: var(--fc-space-1);
+}
+
+.alert-success { background: var(--fc-success-bg); border-color: var(--fc-success-fg); color: var(--fc-success-fg); }
+.alert-warn    { background: var(--fc-warning-bg); border-color: var(--fc-warning-fg); color: var(--fc-warning-fg); }
+.alert-info    { background: var(--fc-info-bg);    border-color: var(--fc-info-fg);    color: var(--fc-info-fg); }
+.alert-error   { background: var(--fc-danger-bg);  border-color: var(--fc-danger-fg);  color: var(--fc-danger-fg); }
+
+.alert-head {
+	font-size: var(--fc-font-size-heading);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+.alert-success a, .alert-warn a, .alert-info a, .alert-error a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.notification {
+	background: var(--fc-success-bg);
+	border: var(--fc-border-width) solid var(--fc-success-fg);
+	border-radius: var(--fc-radius-panel);
+	box-shadow: var(--fc-shadow-overlay);
+	color: var(--fc-success-fg);
+	font-size: var(--fc-font-size-control);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+.notification.bad {
+	background: var(--fc-danger-bg);
+	border-color: var(--fc-danger-fg);
+	color: var(--fc-danger-fg);
+}
+
+.notification .close:hover {
+	background: transparent;
+	box-shadow: inset 0 0 0 var(--fc-border-width) currentcolor;
+}
+
+.notification.bad .icon {
+	filter: var(--fc-filter-icon-danger);
+}
+
+.title.error::before, .item.feed.error .item-title .title::before, p.error {
+	color: var(--fc-danger-fg);
+}
+
+.log-item.log-error {
+	background: var(--fc-danger-bg);
+	color: var(--fc-danger-fg);
+}
+
+/*=== 12. Boxes, global view, configuration =====================*/
+
+.box {
+	background: var(--fc-bg-surface);
+	border: var(--fc-border-width) solid var(--fc-border-subtle);
+	border-radius: var(--fc-radius-panel);
+}
+
+.box .box-title {
+	border-bottom: var(--fc-border-width) solid var(--fc-border-subtle);
+}
+
+.box .box-title h2 {
+	color: var(--fc-text-primary);
+	font-size: var(--fc-font-size-heading);
+	font-weight: var(--fc-font-weight-semibold);
+}
+
+.preview_controls {
+	background: var(--fc-bg-hover);
+	border-color: var(--fc-border-subtle);
+}
+
+.theme-preview-list, .theme-preview-list .properties {
+	border-color: var(--fc-border-subtle);
+}
+
+.drag-drop-marker {
+	border-color: var(--fc-accent-fg);
+}
+
+/*=== 13. Touch ================================================*/
+
+@media (pointer: coarse) {
+	.btn, .nav-list .item > a, .flux .item.manage .item-element, .pagination .item a {
+		min-height: var(--fc-target-touch);
+		min-width: var(--fc-target-touch);
+	}
+}
+
+/*=== 14. Preferences ===========================================*/
+
+/* reduced motion: no transitions, final state shown directly */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0s !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0s !important;
+	}
+}
+
+/* forced colors: keep structure with system colors, outlines and symbols */
+@media (forced-colors: active) {
+	:is(a, button, input, select, textarea, summary, label, [tabindex]):focus-visible {
+		outline-color: Highlight;
+	}
+	.btn.active, .aside .item.active, .tree-folder.category.active .tree-folder-title,
+	.item.feed.active, .flux.current {
+		outline: 2px solid Highlight;
+		outline-offset: -2px;
+	}
+	/* accent fills collapse to Canvas here, so "on accent" icons use the normal icon tint */
+	.btn-important .icon, #btn-add.btn-important .icon, #actualize .icon,
+	.nav_menu_read_all .read_all .icon {
+		filter: var(--fc-filter-icon);
+	}
+	/* keep the plate behind third-party favicons so dark glyphs stay visible */
+	img.favicon {
+		forced-color-adjust: none;
+	}
+}
