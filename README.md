@@ -76,7 +76,7 @@ The three stylesheets are generated from `src/theme.json` and `src/rules.css`; d
 
 ## License
 
-MIT © Cheycron Blaine. See [LICENSE](https://github.com/cheycron/flatcap-theme/blob/main/LICENSE).
+MIT © Cheycron Blaine. See [LICENSE](https://github.com/cheycron/flatcap-freshrss/blob/main/LICENSE).
 
 ## Support
 
